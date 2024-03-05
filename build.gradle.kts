@@ -5,8 +5,9 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android) apply false
     alias(libs.plugins.google.ksp) apply false
     alias(libs.plugins.dagger.hilt) apply false
-    alias(libs.plugins.detekt)
-    alias(libs.plugins.kover) apply false
+
+    alias(libs.plugins.detekt) apply true
+    alias(libs.plugins.kover) apply true
 }
 
 /**
