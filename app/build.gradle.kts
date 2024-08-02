@@ -1,24 +1,27 @@
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.android.kotlin)
+
+    alias(libs.plugins.compose.compiler)
+
     alias(libs.plugins.google.ksp)
+
     alias(libs.plugins.dagger.hilt)
-    alias(libs.plugins.kover)
 }
 
 android {
     namespace = "dev.matheusfaleiro.senti"
 
-    compileSdk = libs.versions.android.targetSdk.get().toInt()
+    compileSdk = libs.versions.compile.sdk.get().toInt()
 
     defaultConfig {
         applicationId = "dev.matheusfaleiro.senti"
 
-        minSdk = libs.versions.android.minSdk.get().toInt()
-        targetSdk = libs.versions.android.targetSdk.get().toInt()
+        minSdk = libs.versions.min.sdk.get().toInt()
+        targetSdk = libs.versions.target.sdk.get().toInt()
 
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = libs.versions.version.code.get().toInt()
+        versionName = libs.versions.version.name.get()
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
@@ -32,8 +35,18 @@ android {
             versionNameSuffix = ".debug"
         }
 
-        release {
+        create("staging") {
+            initWith(getByName("debug"))
+            isDebuggable = true
             isMinifyEnabled = false
+
+            applicationIdSuffix = ".staging"
+        }
+
+        release {
+            isDebuggable = false
+            isMinifyEnabled = true
+            isShrinkResources = true
 
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -48,15 +61,29 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = libs.versions.jvm.target.get()
     }
 
     buildFeatures {
         compose = true
     }
 
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.androidx.compose.compiler.get()
+    testOptions {
+        managedDevices {
+            localDevices {
+                create(name = libs.versions.device.name.get()) {
+                    device = libs.versions.device.version.get()
+                    apiLevel = libs.versions.target.sdk.get().toInt()
+                    systemImageSource = libs.versions.device.system.image.get()
+                }
+            }
+
+            groups {
+                create(name = libs.versions.device.group.get()) {
+                    targetDevices.add(element = devices[libs.versions.device.name.get()])
+                }
+            }
+        }
     }
 
     packaging {
@@ -79,6 +106,8 @@ dependencies {
 
     implementation(libs.androidx.material3)
 
+    implementation(libs.bundles.compose)
+
     implementation(libs.dagger.hilt)
     ksp(libs.dagger.hilt.compiler)
 
@@ -90,5 +119,5 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.ui.test.junit4)
 
-    debugImplementation(libs.bundles.debugCompose)
+    debugImplementation(libs.bundles.debug.compose)
 }

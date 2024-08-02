@@ -1,71 +1,364 @@
 [versions]
-android-buildTools = "34.0.0"
-android-compileSdk = "34"
-android-minSdk = "30"
-android-targetSdk = "34"
-androidx-compose-compiler = "1.5.10"
+# Minimum SDK version for the project
+min-sdk = "28"
+# Target SDK version for the project
+target-sdk = "34"
+# Compile SDK version for the project
+compile-sdk = "34"
+# Application version code
+version-code = "1"
+# Application version name
+version-name = "1.0"
+# JVM target version
+jvm-target = "1.8"
+# Device name for the emulator
+device-name = "pixel8ProApi34"
+# Device version
+device-version = "Pixel 8 Pro"
+# System image
+device-system-image = "aosp-atd"
+# Group name for the managed devices
+device-group = "phone"
 
-agp = "8.3.0"
-kotlin = "1.9.22"
-coreKtx = "1.12.0"
+# AndroidX Browser version
+androidx-browser = "1.8.0"
+# Android Gradle Plugin version
+android-gradle-plugin = "8.5.1"
+# Version of Activity Compose library
+activity-compose = "1.9.1"
+# Version of Airbnb Lottie library
+airbnb-lottie = "6.4.1"
+# Version of androidx JUnit library
+androix-junit = "1.2.1"
+# Version of App Startup library
+app-startup = "1.1.1"
+# Version of Auth0 library
+auth-zero = "2.11.0"
+# Version of Compose BOM (Bill of Materials)
+compose-bom = "2024.06.00"
+# Version of Core KTX library
+core-ktx = "1.13.1"
+# Version of Coroutines library
+coroutines = "1.8.1"
+# Version of Dagger Hilt library
+dagger-hilt = "2.51.1"
+# Version of DataDog library
+dataDog = "2.11.0"
+# Version of DataStore library
+datastore = "1.1.1"
+# Version of DateTime library
+date-time = "0.6.0"
+# Version of Detekt library
+detekt = "1.23.6"
+# Version of Detekt Formatting library
+formatting = "1.23.4"
+# Version of Detekt Rules Compose library
+rules-compose = "1.3.0"
+# Version of Espresso Core library
+espresso-core = "3.6.1"
+# Version of Google Accompanist library
+google-accompanist = "0.34.0"
+# Version of Google KSP library
+google-ksp = "2.0.0-1.0.21"
+# Version of Hilt Navigation library
+hilt-navigation = "1.2.0"
+# Version of Hilt Work Manager library
+hilt-work-manager = "1.2.0"
+# Version of Immutable Collections library
+immutable = "0.3.7"
+# Version of JUnit library
 junit = "4.13.2"
-junitVersion = "1.1.5"
-espressoCore = "3.5.1"
-lifecycleRuntimeKtx = "2.7.0"
-activityCompose = "1.8.2"
-composeBom = "2024.02.01"
-daggerHilt = "2.50"
-googleKsp = "1.9.22-1.0.17"
-detekt = "1.23.5"
-kover = "0.7.6"
+# Version of Kotest library
+kottest = "5.9.1"
+# Version of Kotest DateTime library
+kottest-date-time = "1.1.0"
+# Version of Kotlin language
+kotlin = "2.0.0"
+# Version of Kotlin JSON Serialization library
+kotlinxSerializationJson = "1.7.1"
+# Version of Kover library
+kover = "0.8.0"
+# Version of Lifecycle library
+lifecycle = "2.8.4"
+# Version of MockK library
+mockk = "1.13.12"
+# Version of Moshi library
+moshi = "1.15.1"
+# Version of Navigation library
+navigation = "2.8.0-beta06"
+# Version of OkHttp library
+okhttp = "4.12.0"
+# Version of Retrofit library
+retrofit = "2.11.0"
+# Version of Robolectric library
+roboelectric = "4.13"
+# Version of Room library
+room = "2.6.1"
+# Version of Splash Screen library
+splashscreen = "1.0.1"
+# Version of Timber library
+timber = "5.0.1"
+# Version of Test Core KTX library
+test-core-ktx = "1.6.1"
+# Version of Test Runner library
+test-runner = "1.6.1"
+# Version of Turbine library
+turbine = "1.1.0"
+# Version of Work Manager library
+work-manager = "2.9.0"
+# Version of Zetetic SQL Cipher library
+zetetic-sql-cipher = "4.5.4"
 
 [libraries]
-androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
-junit = { group = "junit", name = "junit", version.ref = "junit" }
-androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
-androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
-androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
-androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
-androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
-androidx-ui = { group = "androidx.compose.ui", name = "ui" }
-androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
-androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
-androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
-androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
-androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+# Activity Compose library for handling activity-related tasks in Jetpack Compose
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
+# App Startup library for AndroidX
+androidx-app-startup = { group = "androidx.startup", name = "startup-runtime", version.ref = "app-startup" }
+# Browser library for AndroidX
+androidx-browser = { module = "androidx.browser:browser", version.ref = "androidx-browser" }
+# Core KTX library providing Kotlin extensions for Android
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
+# Compose BOM (Bill of Materials) to manage Compose dependencies
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
+# Espresso Core library for UI testing
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
+# JUnit library for testing
+androidx-junit = { group = "androidx.test.ext", name = "junit-ktx", version.ref = "androix-junit" }
+# Lifecycle runtime library for lifecycle-aware components
+androidx-lifecycle-runtime-compose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "lifecycle" }
+# Lifecycle runtime library with Kotlin extensions
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle" }
+# Material3 library for Compose
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
-dagger-hilt = { group = "com.google.dagger", name = "hilt-android", version.ref = "daggerHilt" }
-dagger-hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "daggerHilt" }
+# Material Icons Extended library for Compose
+androidx-material-icons = { group = "androidx.compose.material", name = "material-icons-extended" }
+# Navigation Compose library for navigation within Compose
+androidx-navigation = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation" }
+# Room library for database management
+androidx-room = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+# Room Compiler library for annotation processing
+androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+# Room KTX library providing Kotlin extensions for Room
+androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+# Room Testing library for testing Room components
+androidx-room-testing = { group = "androidx.room", name = "room-testing", version.ref = "room" }
+# Core Splashscreen library for AndroidX
+androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "splashscreen" }
+# Test Core KTX library for testing
+androidx-test-core-ktx = { group = "androidx.test", name = "core-ktx", version.ref = "test-core-ktx" }
+# Test runner for running tests
+androidx-test-runner = { group = "androidx.test", name = "runner", version.ref = "test-runner" }
+# UI library for Compose
+androidx-ui = { group = "androidx.compose.ui", name = "ui" }
+# Graphics library for Compose UI
+androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+# Tooling library for Compose UI previews
+androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+# Tooling preview library for Compose UI
+androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+# Test JUnit4 library for Compose UI
+androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+# Test manifest library for Compose UI
+androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+# Work Manager library for background tasks
+androidx-work-manager = { group = "androidx.hilt", name = "hilt-work", version.ref = "hilt-work-manager" }
+# Work Manager runtime library for background tasks
+androidx-work-manager-runtime = { group = "androidx.work", name = "work-runtime-ktx", version.ref = "work-manager" }
+# Work Manager compiler library for annotation processing
+androidx-work-manager-compiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "hilt-work-manager" }
+# Work Manager testing library for testing background tasks
+androidx-work-testing = { group = "androidx.work", name = "work-testing", version.ref = "work-manager" }
+# Auth0 library for authentication
+auth-zero = { group = "com.auth0.android", name = "auth0", version.ref = "auth-zero" }
+# Coroutines Android library for coroutines support on Android
+coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
+# Coroutines Core library for core coroutines support
+coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
+# Coroutines Test library for testing coroutines
+coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines" }
+# DataDog RUM library for monitoring user experience
+datadog-sdk-rum = { group = "com.datadoghq", name = "dd-sdk-android-rum", version.ref = "dataDog" }
+# DataDog Compose library for monitoring user experience
+datadog-sdk-rum-compose = { group = "com.datadoghq", name = "dd-sdk-android-compose", version.ref = "dataDog" }
+# DataDog RUM Coroutines library for monitoring user experience with coroutines
+datadog-sdk-rum-coroutines = { group = "com.datadoghq", name = "dd-sdk-android-rum-coroutines", version.ref = "dataDog" }
+# DataDog Logger
+datadog-sdk-logger = { group = "com.datadoghq", name = "dd-sdk-android-logs", version.ref = "dataDog" }
+# DataDog Timber library for logging
+datadog-sdk-timber = { group = "com.datadoghq", name = "dd-sdk-android-timber", version.ref = "dataDog" }
+# Kotlin collections immutable library
+kotlin-immutable = { group = "org.jetbrains.kotlinx", name = "kotlinx-collections-immutable", version.ref = "immutable" }
+# Kotlin DateTime library
+kotlin-date-time = { group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "date-time" }
+# Logging Interceptor library for OkHttp
+logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
+# Dagger Hilt library for dependency injection
+dagger-hilt = { group = "com.google.dagger", name = "hilt-android", version.ref = "dagger-hilt" }
+# Dagger Hilt Compiler library for annotation processing
+dagger-hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "dagger-hilt" }
+# DataStore preferences library
+androidx-datastore = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "datastore" }
+# Detekt formatting rules library
+detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "formatting" }
+# Detekt rules for Compose library
+detekt-rules-compose = { module = "ru.kode:detekt-rules-compose", version.ref = "rules-compose" }
+# Accompanist library for handling permissions
+google-accompanist = { group = "com.google.accompanist", name = "accompanist-permissions", version.ref = "google-accompanist" }
+# Hilt Navigation Compose library
+hilt-navigation = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hilt-navigation" }
+# Kotest assertions core library
+kottest = { group = "io.kotest", name = "kotest-assertions-core", version.ref = "kottest" }
+# Kotest assertions for DateTime library
+kottest-date-time = { group = "io.kotest.extensions", name = "kotest-assertions-kotlinx-datetime", version.ref = "kottest-date-time" }
+# MockK library for mocking in tests
+mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
+# MockK library for mocking in instrumented tests
+mockk-android = { group = "io.mockk", name = "mockk-android", version.ref = "mockk" }
+# Moshi library for JSON serialization
+moshi = { group = "com.squareup.moshi", name = "moshi-kotlin", version.ref = "moshi" }
+# OkHttp library for HTTP requests
+okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
+# Retrofit library for HTTP API communication
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+# Retrofit converter for Moshi library
+retrofit-converter = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "retrofit" }
+# Robolectric library for testing Android components
+roboelectric = { group = "org.robolectric", name = "robolectric", version.ref = "roboelectric" }
+# Timber library for logging
+timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
+# Turbine library for testing coroutines
+turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "turbine" }
+# Zetetic SQLCipher library for encrypted database
+zetetic-sql-cipher = { group = "net.zetetic", name = "android-database-sqlcipher", version.ref = "zetetic-sql-cipher" }
+# Airbnb Lottie library for animations in Compose
+airbnb-lottie = { group = "com.airbnb.android", name = "lottie-compose", version.ref = "airbnb-lottie" }
+# JUnit library for testing
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+# Kotlin serialization library for JSON serialization
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
 
 [plugins]
-android-application = { id = "com.android.application", version.ref = "agp" }
-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-google-ksp = { id = "com.google.devtools.ksp", version.ref = "googleKsp" }
-dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "daggerHilt" }
+# Android application plugin
+android-application = { id = "com.android.application", version.ref = "android-gradle-plugin" }
+# Kotlin plugin for Android
+android-kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+# Android library plugin
+android-library = { id = "com.android.library", version.ref = "android-gradle-plugin" }
+# Compose compiler plugin for Jetpack Compose
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+# Dagger Hilt plugin for dependency injection
+dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "dagger-hilt" }
+# Room plugin for database management
+android-room = { id = "androidx.room", version.ref = "room" }
+# Detekt plugin for static code analysis
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
-kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
+# Google KSP (Kotlin Symbol Processing) plugin
+google-ksp = { id = "com.google.devtools.ksp", version.ref = "google-ksp" }
+# Kotlin Kover plugin for code coverage
+kotlin-kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
+# Kotlin Parcelize plugin for Android
+kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
+# Kotlin Serialization plugin for Android
+kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 
 [bundles]
-compose = [
-    "androidx-ui",
-    "androidx-ui-graphics",
-    "androidx-ui-tooling",
-    "androidx-ui-tooling-preview",
+# Bundle for analytics libraries
+analytics = [
+    "datadog-sdk-rum",
+    "datadog-sdk-rum-coroutines",
+    "datadog-sdk-rum-compose",
+    "datadog-sdk-logger",
+    "datadog-sdk-timber"
 ]
 
-debugCompose = [
+# Bundle for authentication libraries
+authentication = [
+    "auth-zero"
+]
+
+# Bundle for Compose libraries
+compose = [
+    "androidx-ui",
+    "androidx-ui-tooling",
+    "androidx-ui-graphics",
+    "androidx-material3",
+    "androidx-material-icons",
+    "androidx-activity-compose",
+    "androidx-ui-tooling-preview"
+]
+
+# Bundle for coroutines libraries
+coroutines = [
+    "coroutines-core",
+    "coroutines-android"
+]
+
+# Bundle for database libraries
+database = [
+    "androidx-room",
+    "androidx-room-ktx",
+    "zetetic-sql-cipher"
+]
+
+# Bundle for debugging Compose UI
+debug-compose = [
     "androidx-ui-tooling",
     "androidx-ui-test-manifest"
 ]
 
-network = [
-
+# Bundle for dependency injection libraries
+dependency-injection = [
+    "dagger-hilt"
 ]
 
-database = [
-
+# Bundle for lifecycle libraries
+lifecycle = [
+    "androidx-lifecycle-runtime-ktx",
+    "androidx-lifecycle-runtime-compose"
 ]
 
+# Bundle for logging libraries
 logging = [
+    "timber"
+]
 
+# Bundle for navigation libraries
+navigation = [
+    "androidx-navigation",
+    "hilt-navigation",
+    'kotlinx-serialization-json'
+]
+
+# Bundle for network libraries
+network = [
+    "okhttp",
+    "logging-interceptor",
+    "retrofit",
+    "retrofit-converter",
+    "moshi"
+]
+
+# Bundle for unit testing libraries
+unit-testing = [
+    "androidx-junit",
+    "junit",
+    "mockk",
+    "kottest",
+    "turbine",
+    "coroutines-test",
+    "androidx-test-core-ktx",
+    "kottest-date-time"
+]
+
+# Bundle for UI testing libraries
+ui-testing = [
+    "androidx-ui-test-junit4",
+    "androidx-espresso-core",
+    "androidx-junit"
+]
+
+# Bundle for Work Manager library
+work-manager = [
+    "androidx-work-manager",
+    "androidx-work-manager-runtime"
 ]
